@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#252525"/>
+      <stop offset="1" stop-color="#050505"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="900" fill="url(#bg)"/>
+  <circle cx="450" cy="370" r="150" fill="#777"/>
+  <path d="M190 760c35-170 125-245 260-245s225 75 260 245" fill="#555"/>
+  <circle cx="400" cy="350" r="15" fill="#111"/>
+  <circle cx="500" cy="350" r="15" fill="#111"/>
+  <path d="M390 430q60 42 120 0" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+  <text x="450" y="840" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="48" font-weight="700">DUMMY PHOTO</text>
+</svg>

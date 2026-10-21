@@ -2,9 +2,9 @@
 
 export const profile = {
   name: 'Bharanidharan V',
-  title: 'Developer & Student',
+  title: ' Full Stack Developer',
   tagline: 'Learning, building, and bringing ideas to life.',
-  skills: ['React', 'Node.js', 'Java', 'JavaScript', 'Python', 'ESP32', 'AI / ML', 'Drones', 'HTML & CSS', 'Git'],
+  skills: ['React', 'Node.js', 'Java', 'JavaScript', 'Python', 'ESP32', 'AI / ML', 'Drones', 'HTML', 'CSS' , 'Git'],
   about: {
     intro:
       'I am a computer science student who enjoys turning ideas into working software and hardware. I like understanding how things work, then building something useful with that knowledge.',
@@ -50,9 +50,9 @@ export const projects = [
 ];
 
 export const connections = [
-  { id: 'email', label: 'Email', value: 'your.email@example.com', href: 'mailto:your.email@example.com' },
-  { id: 'github', label: 'GitHub', value: 'github.com/your-username', href: 'https://github.com/' },
-  { id: 'linkedin', label: 'LinkedIn', value: 'linkedin.com/in/your-name', href: 'https://www.linkedin.com/' },
+  { id: 'email', label: 'Email', value: 'bharanidharanv26@gmail.com', href: 'mailto:bharanidharanv26@gmail.com' },
+  { id: 'github', label: 'GitHub', value: 'github.com/bharanidharanv26', href: 'https://github.com/bharanidharanv26.git' },
+  { id: 'linkedin', label: 'LinkedIn', value: 'linkedin.com/in/bharanidharanv26', href: 'https://www.linkedin.com/bharanidharanv26' },
   { id: 'resume', label: 'Resume', value: 'View or download', href: '/resume.pdf', download: true },
   { id: 'website', label: 'Website', value: 'Coming soon', href: null }
 ];

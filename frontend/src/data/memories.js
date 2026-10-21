@@ -1,7 +1,21 @@
-// Add your memory photos to frontend/public/images/memories/ and list them here.
-// Any image format works (jpg, png, webp). Keep 6-12 photos for the best look.
-export const memories = [1, 2, 3, 4, 5, 6, 7, 8].map(n => ({
-  src: `/images/memories/m${n}.svg`,
-  alt: `Memory ${n}`,
-  title: `Memory ${n}`
-}));
+const uploadedPhotos = [
+  ['95d33248b06184235bfe7f0dc0ace640.jpg', 'Memory portrait'],
+  ['Bharanidharan coat.png', 'Bharanidharan coat'],
+  ['about photo.jpg', 'About photo'],
+  ['s.jpg', 'Memory photo'],
+  ['smiling-anime-boy-with-clouds.jpg', 'Smiling anime boy'],
+  ['spider.jpg', 'Spider illustration'],
+  ['spiderman.jpg', 'Spider-Man illustration'],
+  ['sports.jpg', 'Sports memory'],
+  ['travel-1.jpg', 'Travel memory']
+];
+
+// Forty positions keep the dome dense; replace or add files in this list later.
+export const memories = Array.from({ length: 40 }, (_, index) => {
+  const [file, alt] = uploadedPhotos[index % uploadedPhotos.length];
+  return {
+    src: `/images/memories/${encodeURIComponent(file)}`,
+    alt: `${alt} ${index + 1}`,
+    title: `${alt} ${index + 1}`
+  };
+});

@@ -1,18 +1,10 @@
-import { useEffect, useState } from 'react';
-import CircularCarousel from '../components/CircularCarousel.jsx';
+import DomeGallery from '../components/DomeGallery.jsx';
 import Status from '../components/Status.jsx';
-import { memories } from '../data/memories.js';
 import { useApi } from '../api.js';
+import { memories } from '../data/memories.js';
 
 const Home = () => {
   const { data, loading, error, retry } = useApi('/api/profile');
-  const [cardWidth, setCardWidth] = useState(220);
-  useEffect(() => {
-    const set = () => setCardWidth(window.innerWidth < 600 ? 140 : window.innerWidth < 1000 ? 180 : 220);
-    set();
-    window.addEventListener('resize', set);
-    return () => window.removeEventListener('resize', set);
-  }, []);
 
   return (
     <main className="page">
@@ -45,31 +37,15 @@ const Home = () => {
       <section className="memories">
         <h2 className="section-title">Memories</h2>
         <div className="memories__stage">
-          <CircularCarousel
-            items={memories}
-            preset="cylinder"
-            intro="rise"
-            cardWidth={cardWidth}
-            aspectRatio={1}
-            speed={14}
-            captions={false}
-            gap={25}
-            tilt={-5}
-            curve={1}
-            perspective={2500}
-            autoplay="drift"
-            direction="left"
-            momentum={0.6}
-            snap
-            pauseOnHover
-            focusOnClick
-            draggable
-            parallax={0.3}
-            stretch={0.5}
-            fadeColor="#000000"
-            depthFade={0.55}
-            innerShade={0.6}
-            cornerRadius={12}
+          <DomeGallery
+            images={memories}
+            fit={0.75}
+            minRadius={350}
+            autoRotateSpeed={10}
+            segments={32}
+            dragSensitivity={20}
+            dragDampening={5}
+            grayscale
           />
         </div>
       </section>

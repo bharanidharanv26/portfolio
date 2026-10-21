@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import Background3D from './components/Background3D.jsx';
+import FluxLines from './components/FluxLines.jsx';
 import Navbar from './components/Navbar.jsx';
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
@@ -20,7 +20,7 @@ const App = () => {
 
   return (
     <>
-      <Background3D scene={scene} />
+      <FluxLines className="flux-lines--global" />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
