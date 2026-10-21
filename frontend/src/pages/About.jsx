@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom';
 import Status from '../components/Status.jsx';
-import ProfileCard from '../components/ProfileCard.jsx';
+import Lanyard from '../components/Lanyard.jsx';
 import { useApi } from '../api.js';
 
 const About = () => {
@@ -8,24 +9,31 @@ const About = () => {
   return (
     <main className="page page--about">
       <div className="about">
-        <ProfileCard
-          name={data?.name || 'Bharanidharan V'}
-          title={data?.title || 'Developer & Student'}
-          handle="bharanidharan"
-          status="Available"
-          contactText="Connect"
-          avatarUrl="/images/about.jpg"
-          iconUrl="/favicon.svg"
-          holo={0.8}
-          glare={0.55}
-          tiltStrength={10}
-          parallax={8}
-          radius={18}
-          enableTilt
-          showUserInfo
-          theme="dark"
-          onContactClick={() => window.location.href = '/connections'}
-        />
+        <figure className="about__portrait">
+          <div className="about__lanyard">
+            <Lanyard
+              frontImage="/images/about.jpg"
+              backImage="/images/about.jpg"
+              alt={`Portrait of ${data?.name || 'Bharanidharan V'}`}
+              strapColor="#504365"
+              strapWidth={0.8}
+              strapLength={0.4}
+              size={0.58}
+              damping={0.65}
+              breeze={0.15}
+            />
+          </div>
+          <figcaption className="about__caption">
+            <p className="about__hint">Drag to swing · Click to flip</p>
+            <div className="about__profile">
+              <div className="about__identity">
+                <span className="about__handle">@bharanidharan</span>
+                <span className="about__availability">Available</span>
+              </div>
+              <Link className="about__connect" to="/connections">Connect</Link>
+            </div>
+          </figcaption>
+        </figure>
         <div className="about__text">
           <h1 className="page-title">About</h1>
           {about ? (
