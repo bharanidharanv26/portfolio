@@ -1,23 +1,50 @@
-import DomeGallery from '../components/DomeGallery.jsx';
+import { lazy, Suspense } from 'react';
 import Status from '../components/Status.jsx';
 import { useApi } from '../api.js';
-import { memories } from '../data/memories.js';
+import './Home.css';
+
+const Lanyard = lazy(() => import('../components/Lanyard.jsx'));
+const PORTRAIT = '/images/memories/Bharanidharan%20coat.png';
 
 const Home = () => {
   const { data, loading, error, retry } = useApi('/api/profile');
 
   return (
-    <main className="page">
+    <main className="page page--home">
       <section className="hero">
-        {data ? (
-          <>
-            <h1 className="hero__name">{data.name}</h1>
-            <p className="hero__title">{data.title}</p>
-            <p className="hero__tagline">{data.tagline}</p>
-          </>
-        ) : (
-          <Status loading={loading} error={error} retry={retry} />
-        )}
+        <figure className="hero__portrait">
+          <div className="hero__lanyard">
+            <Suspense fallback={
+              <div className="hero__photo-loading">
+                <img src={PORTRAIT} alt="Portrait of Bharanidharan V" />
+              </div>
+            }>
+              <Lanyard
+                frontImage={PORTRAIT}
+                backImage={PORTRAIT}
+                alt={`Portrait of ${data?.name || 'Bharanidharan V'}`}
+                strapColor="#343b60"
+                strapWidth={0.8}
+                strapLength={0.4}
+                size={0.58}
+                damping={0.65}
+                breeze={0.15}
+              />
+            </Suspense>
+          </div>
+          <figcaption className="hero__portrait-hint">Drag to swing · Click to flip</figcaption>
+        </figure>
+        <div className="hero__copy">
+          {data ? (
+            <>
+              <h1 className="hero__name">{data.name}</h1>
+              <p className="hero__title">{data.title}</p>
+              <p className="hero__tagline">{data.tagline}</p>
+            </>
+          ) : (
+            <Status loading={loading} error={error} retry={retry} />
+          )}
+        </div>
       </section>
 
       {data && (
@@ -33,22 +60,6 @@ const Home = () => {
           </div>
         </div>
       )}
-
-      <section className="memories">
-        <h2 className="section-title">Memories</h2>
-        <div className="memories__stage">
-          <DomeGallery
-            images={memories}
-            fit={0.75}
-            minRadius={350}
-            autoRotateSpeed={10}
-            segments={32}
-            dragSensitivity={20}
-            dragDampening={5}
-            grayscale
-          />
-        </div>
-      </section>
     </main>
   );
 };

@@ -1,0 +1,85 @@
+.page--home .hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  grid-template-areas: 'portrait copy';
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+  min-height: min(720px, calc(100svh - 11rem));
+  padding-bottom: 2.5rem;
+}
+
+.hero__portrait {
+  grid-area: portrait;
+  min-width: 0;
+  width: 100%;
+  margin: 0;
+}
+
+.hero__lanyard {
+  height: clamp(400px, calc(100svh - 14rem), 600px);
+  border-radius: 24px;
+}
+
+.hero__lanyard .lanyard {
+  border-radius: inherit;
+}
+
+.hero__portrait-hint {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.hero__copy {
+  grid-area: copy;
+  min-width: 0;
+}
+
+.page--home .hero__name {
+  font-size: clamp(2.6rem, 4.5vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+.page--home .hero__title {
+  font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+}
+
+.page--home .hero__tagline {
+  max-width: 32ch;
+}
+
+.hero__photo-loading {
+  position: relative;
+  height: 100%;
+}
+
+.hero__photo-loading img {
+  position: absolute;
+  top: 24%;
+  left: 50%;
+  width: min(72%, 300px);
+  max-height: 66%;
+  aspect-ratio: 1.6 / 2.25;
+  object-fit: cover;
+  border: 3px solid #e5e1ed;
+  border-radius: 18px;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 760px) {
+  .page--home .hero {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'copy' 'portrait';
+    gap: 1rem;
+    min-height: auto;
+    padding-top: 1.5rem;
+  }
+  .hero__portrait { max-width: 460px; margin: 0 auto; }
+  .hero__lanyard { height: clamp(360px, 100vw, 480px); }
+  .page--home .hero__name { font-size: clamp(2.25rem, 9vw, 4rem); }
+}
