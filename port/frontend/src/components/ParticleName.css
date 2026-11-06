@@ -1,0 +1,47 @@
+.particle-name {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-transform: inherit;
+  cursor: url('/cursor-small.svg') 2 1, default;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.particle-name:focus-visible {
+  outline: 1px dashed #9986c7;
+  outline-offset: 6px;
+  border-radius: 8px;
+}
+
+.particle-name__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.particle-name__fallback {
+  position: absolute;
+  inset: clamp(8px, 4%, 20px) 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 0.82em;
+  line-height: 1.2;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .particle-name {
+    cursor: default;
+  }
+}
